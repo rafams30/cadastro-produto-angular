@@ -29,7 +29,10 @@
                     <label for="selectCategory" class="col-sm-2 col-form-label">Categoria:</label>
                     <div class="col-sm-4">
                         <select class="form-select" aria-label="Selecione uma categoria" id="selectCategory" required>
-                            <option value="" selected>Escolha:</option>                            
+                            <option *ngFor="let c of categories">
+                                {{c.name}}
+                            </option>      
+
                         </select>
                     </div>
                 </div>
