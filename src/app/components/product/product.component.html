@@ -28,8 +28,8 @@
 
                     <label for="selectCategory" class="col-sm-2 col-form-label">Categoria:</label>
                     <div class="col-sm-4">
-                        <select class="form-select" aria-label="Selecione uma categoria" id="selectCategory" required>
-                            <option *ngFor="let c of categories">
+                        <select class="form-select" aria-label="Selecione uma categoria" name="category" id="selectCategory" required [(ngModel)]="product.category">
+                            <option *ngFor="let c of categories" [ngValue]="c">
                                 {{c.name}}
                             </option>      
 
