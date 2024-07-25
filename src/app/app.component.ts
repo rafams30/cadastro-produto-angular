@@ -5,6 +5,12 @@ import { ProductsComponent } from "./components/products/products.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
+
 
 @Component({
   selector: 'app-root',

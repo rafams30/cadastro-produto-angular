@@ -22,7 +22,7 @@
                         <td>{{p.id}}</td>
                         <td>{{p.name}}</td>
                         <td>{{p.description}}</td>
-                        <td>{{p.price}}</td>
+                        <td>{{p.price | currency: 'BRL'}}</td>
                         <td>{{p.category.name}}</td>
                         <td>
                           <span *ngIf="p.promotion" class="badge bg-success text-white me-1">P</span>
