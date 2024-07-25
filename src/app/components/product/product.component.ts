@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Category } from '../../interfaces/Category';
 import { NgFor } from '@angular/common';
 import { Product } from '../../interfaces/Product';
@@ -21,13 +21,16 @@ export class ProductComponent implements OnInit{
   @Input()
   product ?: Product;
 
+  @Output()
+  saveEmitter = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {    
   }
 
   save() {
-    console.log(this.product);
+    this.saveEmitter.emit();
   }
 
 }
