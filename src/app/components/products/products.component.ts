@@ -6,6 +6,7 @@ import { Product } from '../../interfaces/Product';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../services/category.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -21,17 +22,15 @@ export class ProductsComponent implements OnInit {
   product : Product = {} as Product;
   products : Product[] = [];
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private categoryService: CategoryService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.categories = this.categoryService.getCategories();
+    this.products = this.productService.getProducts();
   }
 
   saveProduct() {
-    this.product.id = this.products.length + 1;
-    this.products.push(this.product);
+    this.productService.save(this.product)
     this.product = {} as Product;
-
-    console.log("Novo produto cadastrado. Total de produtos: " + this.products.length);
   }
 }
