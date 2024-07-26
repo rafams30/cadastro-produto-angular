@@ -26,13 +26,14 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     //this.categories = this.categoryService.getCategories();
-    this.categoryService.getCategories().subscribe(
-      {
+    this.categoryService.getCategories().subscribe({
         next: data => {this.categories = data}
-      }
-    );
+      });
 
-    this.products = this.productService.getProducts();
+    //this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe({
+      next: data => { this.products = data}
+    })
   }
 
   saveProduct() {
