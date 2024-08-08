@@ -17,22 +17,20 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
-  categories : Category [] = [];
+  categories: Category[] = [];
 
-  product : Product = {} as Product;
-  products : Product[] = [];
+  product: Product = {} as Product;
+  products: Product[] = [];
 
   constructor(private categoryService: CategoryService, private productService: ProductService) { }
 
   ngOnInit(): void {
-    //this.categories = this.categoryService.getCategories();
     this.categoryService.getCategories().subscribe({
-        next: data => {this.categories = data}
-      });
+      next: data => { this.categories = data }
+    });
 
-    //this.products = this.productService.getProducts();
     this.productService.getProducts().subscribe({
-      next: data => { this.products = data}
+      next: data => { this.products = data }
     })
   }
 
